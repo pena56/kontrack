@@ -1,6 +1,10 @@
 import { Text, View } from "react-native";
+import { api } from "@workspace/backend/convex/_generated/api";
+import { useQuery } from "convex/react";
 
 export default function Index() {
+  const allNotes = useQuery(api.notes.getNotes);
+
   return (
     <View
       style={{
@@ -9,7 +13,12 @@ export default function Index() {
         alignItems: "center",
       }}
     >
-      <Text>Edit app/index.tsx to edit this screen.</Text>
+      {allNotes?.map((note) => (
+        <View key={note._id}>
+          <Text>{note.title}</Text>
+          <Text>{note.body}</Text>
+        </View>
+      ))}
     </View>
   );
 }
