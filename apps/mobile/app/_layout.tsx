@@ -22,12 +22,13 @@ export default function RootLayout() {
   const { colorScheme } = useColorScheme();
 
   return (
-    <ConvexProvider client={convex}>
-      <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+    <ThemeProvider value={NAV_THEME[colorScheme ?? 'light']}>
+      {/* @ts-ignore */}
+      <ConvexProvider client={convex}>
         <StatusBar style={colorScheme === 'dark' ? 'light' : 'dark'} />
         <Stack />
         <PortalHost />
-      </ThemeProvider>
-    </ConvexProvider>
+      </ConvexProvider>
+    </ThemeProvider>
   );
 }
