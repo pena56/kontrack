@@ -5,6 +5,13 @@
   "scripts": {
     "build": "turbo build",
     "dev": "turbo dev",
+    "dev:web": "turbo dev --filter web",
+    "dev:mobile": "turbo dev --filter mobile",
+    "dev:admin": "turbo dev --filter admin",
+    "dev:backend": "turbo dev --filter @workspace/backend",
+    "dev:wab": "turbo dev --filter web --filter admin --filter @workspace/backend",
+    "dev:wmb": "turbo dev --filter web --filter mobile --filter @workspace/backend",
+    "dev:wmab": "turbo dev --filter web --filter mobile --filter admin --filter @workspace/backend",
     "lint": "turbo lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
